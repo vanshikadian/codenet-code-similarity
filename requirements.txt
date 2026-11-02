@@ -1,2 +1,7 @@
 pandas>=2.0
 pyarrow>=14.0
+numpy==2.3.5
+scipy==1.16.3
+scikit-learn==1.7.2
+joblib==1.6.0
+threadpoolctl==3.7.0

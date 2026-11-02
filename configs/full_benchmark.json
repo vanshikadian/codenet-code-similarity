@@ -1,0 +1,16 @@
+{
+  "project_root": "..",
+  "source_root": "src/data/Project_CodeNet_Python800",
+  "metadata_root": null,
+  "output_root": "artifacts/full_benchmark",
+  "assume_accepted": true,
+  "required_python": "3.12.14",
+  "seed": 881,
+  "development_fraction": 0.5,
+  "validation_fraction": 0.25,
+  "full_corpus": true,
+  "stream_features": true,
+  "pilot_problems": 800,
+  "programs_per_problem": 300,
+  "queries_per_problem": 10
+}

@@ -8,3 +8,4 @@ artifacts/
 *.faiss
 *.npy
 *.pt
+src/data/Project_CodeNet_Python800
