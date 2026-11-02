@@ -7,7 +7,26 @@ Source-code similarity search retrieves programs that solve the same task even w
 
 We evaluate the method as a retrieval system against token-based similarity and pretrained CodeBERT embeddings, using Precision@k, Recall@k, MRR and MAP. We also test whether structural information helps when identifiers are renamed. A small web demo lets you paste code and see the closest programs with their scores.
 
-## Data
+## Python800 pipeline
+
+First, place the extracted Python800 problem folders in `src/data/Project_CodeNet_Python800`, or point `source_root` in `configs/full_benchmark.json` to the collection. The dataset path is ignored by Git to avoid unnecessary data uploads. Additionally, a local symlink can be used when the dataset already exists elsewhere.
+
+From the repository root, run:
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 run_pipeline.py run --config configs/full_benchmark.json
+```
+
+The pipeline extracts raw-token, masked-token and AST features, builds TF-IDF matrices, and evaluates cosine-similarity retrieval. Results are written to `artifacts/full_benchmark/RESULTS.txt`. Existing matrices can be evaluated with:
+
+```sh
+python3 run_pipeline.py evaluate --config configs/full_benchmark.json
+```
+
+## Dataset builder
 
 The cleaned dataset is already in `data/processed/dataset.parquet` (id, problem_id, user_id, code, split), with counts after each filter in `data_card.md`. You only need the steps below to rebuild it.
 
